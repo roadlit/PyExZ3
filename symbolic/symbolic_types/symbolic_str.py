@@ -14,7 +14,7 @@ class SymbolicStr(SymbolicObject, str):
     def getConcrValue(self):
         return self.val
 
-    def wrap(conc, sym):
+    def wrap(conc, sym):  # @NoSelf
         return SymbolicStr("se", conc, sym)
 
     def __hash__(self):

@@ -60,10 +60,10 @@ class Loader:
 		return inv
 
 	# need these here (rather than inline above) to correctly capture values in lambda
-	def _initializeArgumentConcrete(inv,f,val):
+	def _initializeArgumentConcrete(inv,f,val):  # @NoSelf
 		inv.addArgumentConstructor(f, val, lambda n,v: val)
 
-	def _initializeArgumentSymbolic(inv,f,val,st):
+	def _initializeArgumentSymbolic(inv,f,val,st):  # @NoSelf
 		inv.addArgumentConstructor(f, val, lambda n,v: st(n,v))
 
 	def executionComplete(self, return_vals):

@@ -17,7 +17,7 @@ class SymbolicType(object):
 	def getConcrValue(self):
 		raise NotImplemented()
 
-	def wrap(conc,sym):
+	def wrap(conc,sym):  # @NoSelf
 		raise NotImplemented()
 
 	# public funs
@@ -98,7 +98,7 @@ class SymbolicObject(SymbolicType,object):
 
 	SI = None    # this is set up by ConcolicEngine to link __bool__ to PathConstraint
 
-	def wrap(conc,sym):
+	def wrap(conc,sym):  # @NoSelf
 		# see __init__.py
 		raise NotImplemented()
 

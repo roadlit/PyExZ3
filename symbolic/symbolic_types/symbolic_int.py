@@ -20,7 +20,7 @@ class SymbolicInteger(SymbolicObject,int):
 	def getConcrValue(self):
 		return self.val
 
-	def wrap(conc,sym):
+	def wrap(conc,sym):  # @NoSelf
 		return SymbolicInteger("se",conc,sym)
 
 	def __hash__(self):
