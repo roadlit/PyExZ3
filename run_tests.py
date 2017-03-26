@@ -12,10 +12,10 @@ class bcolors:
     ENDC = '\033[0m'
 
 def myprint(color, s, *args):
-  if _platform != "win32" and sys.stdout.isatty():
-    print(color, s, bcolors.ENDC, *args)
-  else:
-    print(*args)
+    if _platform != "win32" and sys.stdout.isatty():
+        print(color, s, bcolors.ENDC, *args)
+    else:
+        print(*args)
 
 usage = "usage: %prog [options] <test directory>"
 parser = OptionParser()
@@ -37,20 +37,20 @@ files = [ f for f in os.listdir(test_dir) if re.search(".py$",f) ]
 
 failed = []
 for f in files:
-	# execute the python runner for this test
-        full = os.path.join(test_dir, f)
-        with open(os.devnull, 'w') as devnull:
-            solver = "--cvc" if options.cvc else "--z3"
-            ret = subprocess.call([sys.executable, "pyexz3.py", "--m=25", solver, full], stdout=devnull)
-        if (ret == 0):
-            myprint(bcolors.SUCCESS, "✓", "Test " + f + " passed.")
-        else:
-            failed.append(f)
-            myprint(bcolors.FAIL, "✗", "Test " + f + " failed.")
+    # execute the python runner for this test
+    full = os.path.join(test_dir, f)
+    with open(os.devnull, 'w') as devnull:
+        solver = "--cvc" if options.cvc else "--z3"
+        ret = subprocess.call([sys.executable, "pyexz3.py", "--m=25", solver, full], stdout=devnull)
+    if (ret == 0):
+        myprint(bcolors.SUCCESS, "✓", "Test " + f + " passed.")
+    else:
+        failed.append(f)
+        myprint(bcolors.FAIL, "✗", "Test " + f + " failed.")
 
 if failed != []:
-	print("RUN FAILED")
-	print(failed)
-	sys.exit(1)
+    print("RUN FAILED")
+    print(failed)
+    sys.exit(1)
 else:
-	sys.exit(0)
+    sys.exit(0)
