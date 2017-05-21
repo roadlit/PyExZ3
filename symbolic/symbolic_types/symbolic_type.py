@@ -25,6 +25,7 @@ class SymbolicType(object):
 	def isVariable(self):
 		return self.expr == None
 
+	# unwrap the 
 	def unwrap(self):
 		if self.isVariable():
 			return (self.getConcrValue(),self)
@@ -48,6 +49,8 @@ class SymbolicType(object):
 			return []
 
 	# creating the expression tree
+	# args: 
+	# fun: the function 
 	def _do_sexpr(self,args,fun,op,wrap):
 		unwrapped = [ (a.unwrap() if isinstance(a,SymbolicType) else (a,a)) for a in args ]
 		args = zip(inspect.getargspec(fun).args, [ c for (c,s) in unwrapped ])

@@ -76,7 +76,7 @@ class ExplorationEngine:
 			if max_iterations != 0 and iterations >= max_iterations:
 				log.info("Maximum number of iterations reached, terminating")
 				break
-
+		
 		return self.generated_inputs, self.execution_return_values, self.path
 
 	# private

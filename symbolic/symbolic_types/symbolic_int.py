@@ -8,11 +8,15 @@ from . symbolic_type import SymbolicObject
 # concrete (int)
 
 class SymbolicInteger(SymbolicObject,int):
+	
 	# since we are inheriting from int, we need to use new
 	# to perform construction correctly
 	def __new__(cls, name, v, expr=None):
 		return int.__new__(cls, v)
 
+	# name: the name of the variable
+	# v : the concrete value
+	# expr: the symbolic expression
 	def __init__(self, name, v, expr=None):
 		SymbolicObject.__init__(self, name, expr)
 		self.val = v

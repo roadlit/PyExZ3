@@ -5,4 +5,5 @@ def expand(in1, in2):
         return 1
 
 def expected_result():
-	return [0,1]
+    return [0,1]
+

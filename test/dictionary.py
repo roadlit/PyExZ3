@@ -14,4 +14,5 @@ def dictionary(in1):
         return 2
 
 def expected_result():
-	return [1,2]
+    return [1,2]
+
